@@ -1,36 +1,39 @@
-import { Spinner } from "react-bootstrap";
 
-const AllUsers = ({ users, handleImageError, imageLoading }) => {
-  
+
+const AllUsers = ({
+  users,
+  handleShowUserInfo,
+  handleImageError,
+}) => {
   return (
     <section className=" w-100  ">
-      <h1 className="fs-4  m-0 p-3  bg-info text-center bg-opacity-50 rounded-top-3">
+      <h1 className="fs-4  mb-2 bg-black   p-3 border text-center bg-opacity-10 ">
         Users List
       </h1>
 
       <div className="users-container ">
         {users &&
-          users?.map((user) => (
+          users?.map((user, index) => (
             <div
               key={user?.profile?.username}
-              className="img-div p-2 bg-dark bg-opacity-10 my-3 rounded d-flex gap-3 align-items-center "
+              onClick={() => handleShowUserInfo(index)}
+              className="img-div p-2 border  d-flex gap-3 align-items-center "
             >
-              {imageLoading ? (
-                <div className=" mt-3 d-flex align-items-center justify-content-center">
-                  <Spinner animation="border" variant="info" />
-                </div>
-              ) : (
+             
                 <img
-                  className="img-circle mt-3"
+                  className="img-circle"
                   src={user?.avatar}
                   onError={handleImageError}
                   alt=""
                 />
-              )}
+              
+              <div>
               <p className="m-0 fs-5 fw-semibold">
                 {user?.profile?.firstName}{" "}
                 <span>{user?.profile?.lastName}</span>{" "}
               </p>
+              <p>{user?.jobTitle}</p>
+              </div>
             </div>
           ))}
       </div>
