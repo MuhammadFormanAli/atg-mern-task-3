@@ -1,0 +1,23 @@
+.img-circle {
+    height: 50px !important;
+    width: 50px !important;
+    border-radius: 50% !important;
+}
+
+.img-circle2 {
+    height: 100px;
+    width: 100px;
+    border-radius: 50%;
+}
+
+.img-div:hover {
+    background-color: #00000041 !important;
+}
+
+.users-container {
+    height: 80vh !important;
+    overflow-y: scroll !important;
+    overflow-x: hidden !important;
+    scroll-behavior: inherit;
+    
+}
